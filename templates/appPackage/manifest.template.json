@@ -27,25 +27,16 @@
         {
             "botId": "{{state.fx-resource-bot.botId}}",
             "scopes": [
-                "personal",
-                "team",
-                "groupchat"
+                "personal"
             ],
             "supportsFiles": false,
             "isNotificationOnly": false,
             "commandLists": [
                 {
                     "scopes": [
-                        "personal",
-                        "team",
-                        "groupchat"
+                        "personal"
                     ],
-                    "commands": [
-                        {
-                            "title": "helloWorld",
-                            "description": "A helloworld command to send a welcome message"
-                        }
-                    ]
+                    "commands": []
                 }
             ]
         }
