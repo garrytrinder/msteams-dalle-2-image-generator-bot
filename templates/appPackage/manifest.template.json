@@ -49,6 +49,7 @@
         "messageTeamMembers"
     ],
     "validDomains": [
-        "{{state.fx-resource-bot.domain}}"
+        "{{state.fx-resource-bot.domain}}",
+        "oaidalleapiprodscus.blob.core.windows.net"
     ]
 }

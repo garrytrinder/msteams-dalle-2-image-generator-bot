@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image</title>
+  <style>
+    #embed-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 95%;
+      height: 95%;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-style: none;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="embed-container"></div>
+  <script>
+    // Get the URL parameters
+    const url = new URL(document.URL);
+
+    // create image element with url and title
+    const img = document.createElement('img');
+    img.src = url.searchParams.get('imgUrl');
+    img.title = url.searchParams.get('text');
+
+    // append image to div
+    document.getElementById('embed-container').appendChild(img);
+  </script>
+
+</body>
+
+</html>
