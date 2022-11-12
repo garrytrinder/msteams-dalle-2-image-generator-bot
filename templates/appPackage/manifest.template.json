@@ -3,12 +3,12 @@
     "manifestVersion": "1.14",
     "version": "1.0.0",
     "id": "{{state.fx-resource-appstudio.teamsAppId}}",
-    "packageName": "com.microsoft.teams.extension",
+    "packageName": "generator.image.dalle.two",
     "developer": {
-        "name": "Teams App, Inc.",
-        "websiteUrl": "https://www.example.com",
-        "privacyUrl": "https://www.example.com/termofuse",
-        "termsOfUseUrl": "https://www.example.com/privacy"
+        "name": "Garry Trinder",
+        "websiteUrl": "https://garrytrinder.github.io",
+        "privacyUrl": "https://garrytrinder.github.io",
+        "termsOfUseUrl": "https://garrytrinder.github.io"
     },
     "icons": {
         "color": "{{config.manifest.icons.color}}",

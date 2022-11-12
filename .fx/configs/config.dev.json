@@ -3,12 +3,12 @@
     "description": "You can customize the TeamsFx config for different environments. Visit https://aka.ms/teamsfx-env-config to learn more about this.",
     "manifest": {
         "appName": {
-            "short": "ImageGenerator",
-            "full": "Full name for ImageGenerator"
+            "short": "DALL-E 2 Image Generator",
+            "full": "DALL-E 2 Image Generator"
         },
         "description": {
-            "short": "Short description of ImageGenerator",
-            "full": "Full description of ImageGenerator"
+            "short": "Create images from scratch based on a text prompt",
+            "full": "Create images using the DALLE 2 Image generation model from scratch based on a text prompt"
         },
         "icons": {
             "color": "resources/color.png",
