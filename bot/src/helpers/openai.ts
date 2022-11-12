@@ -17,7 +17,7 @@ export const createOpenAIClient =
 export const createImageRequest =
   (
     prompt: string,
-    n: number = 1,
+    n = 1,
     size: CreateImageRequestSizeEnum = CreateImageRequestSizeEnum._1024x1024
   ): CreateImageRequest => {
     return {
