@@ -1,5 +1,6 @@
 import { ConversationBot } from "@microsoft/teamsfx";
-import { BotCommandHandler } from "../commands/bot";
+import { GenerateCommandHandler } from "../commands/generate";
+import { SurpriseCommandHandler } from "../commands/surprise";
 import config from "./config";
 
 export const commandBot = new ConversationBot({
@@ -9,6 +10,9 @@ export const commandBot = new ConversationBot({
   },
   command: {
     enabled: true,
-    commands: [new BotCommandHandler()],
+    commands: [
+      new GenerateCommandHandler(),
+      new SurpriseCommandHandler()
+    ],
   }
 });

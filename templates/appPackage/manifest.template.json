@@ -36,7 +36,16 @@
                     "scopes": [
                         "personal"
                     ],
-                    "commands": []
+                    "commands": [
+                        {
+                            "title": "generate",
+                            "description": "Usage: generate <text>"
+                        },
+                        {
+                            "title": "surprise",
+                            "description": "Usage: surprise"
+                        }
+                    ]
                 }
             ]
         }
