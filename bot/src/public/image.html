@@ -7,35 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image</title>
   <style>
-    #embed-container img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 95%;
-      height: 95%;
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      border-style: none;
+    img#image {
+      width: 100%;
     }
 
   </style>
 </head>
 
 <body>
-  <div id="embed-container"></div>
+  <img id="image" />
   <script>
     // Get the URL parameters
     const url = new URL(document.URL);
 
-    // create image element with url and title
-    const img = document.createElement('img');
-    img.src = url.searchParams.get('imgUrl');
-    img.title = url.searchParams.get('text');
-
-    // append image to div
-    document.getElementById('embed-container').appendChild(img);
+    const el = document.getElementById('image')
+    el.src = url.searchParams.get('imgUrl');
+    el.title = url.searchParams.get('text');
   </script>
 
 </body>

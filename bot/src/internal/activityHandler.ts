@@ -9,8 +9,8 @@ export class DALLE2ImageGeneratorActivityHandler extends TeamsActivityHandler {
         type: 'continue',
         value: {
           url: `${process.env.SITE_ENDPOINT}/image.html?imgUrl=${encodeURIComponent(url)}&height=1024&width=1024&text=${text}`,
-          height: 'large',
-          width: 'large',
+          height: 512,
+          width: 512,
           title: text
         }
       }
