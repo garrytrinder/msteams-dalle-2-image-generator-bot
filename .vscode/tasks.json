@@ -12,6 +12,7 @@
                 "Start local tunnel",
                 "Set up bot",
                 "Build & upload Teams manifest",
+                "Write state to local env",
                 "Start services"
             ],
             "dependsOrder": "sequence"
@@ -87,6 +88,15 @@
                 //// Enter your own Teams app package path if using the existing Teams manifest. ////
                 // "appPackagePath": ""
             }
+        },
+        {
+            "label": "Write state to local env",
+            "type": "shell",
+            "command": "node scripts/statetoenv.js",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
         },
         {
             "label": "Start services",
