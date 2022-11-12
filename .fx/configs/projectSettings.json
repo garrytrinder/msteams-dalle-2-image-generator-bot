@@ -1,5 +1,5 @@
 {
-    "appName": "ImageGenerator",
+    "appName": "msteams-dalle-2-image-generator-bot",
     "projectId": "b473e665-4608-49e9-9330-1d0f414b1ce2",
     "version": "2.1.0",
     "components": [
