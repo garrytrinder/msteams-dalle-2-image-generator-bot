@@ -15,7 +15,7 @@ export class SurpriseCommandHandler implements TeamsFxBotCommandHandler {
       { type: ActivityTypes.Typing },
     ]);
 
-    // select a random idea
+    // get a random idea
     const idea: string = getRandomIdea();
 
     await context.sendActivities([

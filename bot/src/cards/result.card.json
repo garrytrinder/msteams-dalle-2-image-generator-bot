@@ -14,7 +14,7 @@
           "type": "Image",
           "size": "stretch",
           "url": "${url}",
-          "altText": "${$root.text}",
+          "altText": "${$root.prompt}",
           "selectAction": {
             "type": "Action.Submit",
             "title": "Open",
@@ -24,7 +24,7 @@
               },
               "data": {
                 "url": "${url}",
-                "text": "${$root.text}"
+                "text": "${$root.prompt}"
               }
             }
           }

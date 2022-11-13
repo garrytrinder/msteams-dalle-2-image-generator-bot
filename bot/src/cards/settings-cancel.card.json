@@ -1,0 +1,16 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.4",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "🚫 [ACK] Cancelled",
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "The action has been cancelled."
+    }
+  ]
+}

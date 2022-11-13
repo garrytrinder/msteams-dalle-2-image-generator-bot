@@ -2,6 +2,7 @@ import { TurnContext, Activity, ActivityTypes, MessageFactory, CardFactory } fro
 import { Configuration, CreateImageRequest, CreateImageRequestSizeEnum, ImagesResponse, OpenAIApi } from "openai";
 import { AdaptiveCards } from "@microsoft/adaptivecards-tools";
 import resultCard from "../cards/result.card.json";
+import { apiKeyState, nState, sizeState } from "..";
 
 // create a new OpenAI client
 export const createOpenAIClient =
@@ -13,24 +14,15 @@ export const createOpenAIClient =
     return new OpenAIApi(configuration);
   }
 
-// create a request for the OpenAI API
-export const createImageRequest =
-  (
-    prompt: string,
-    n = 1,
-    size: CreateImageRequestSizeEnum = CreateImageRequestSizeEnum._1024x1024
-  ): CreateImageRequest => {
-    return {
-      prompt,
-      n,
-      size
-    }
-  }
-
 // generate images from a prompt
-export const generateImages = async (context: TurnContext, text: string): Promise<string | void | Partial<Activity>> => {
-  const openai = createOpenAIClient(process.env.OPENAI_API_KEY)
-  const request = createImageRequest(text);
+export const generateImages = async (context: TurnContext, prompt: string): Promise<string | void | Partial<Activity>> => {
+  const { apiKey } = await apiKeyState.get(context, { apiKey: '' });
+  if (!apiKey) { return context.sendActivity('No API key set. Please set an API key using the "settings" command.'); }
+  const { n } = await nState.get(context, { n: 1 });
+  const { size } = await sizeState.get(context, { size: CreateImageRequestSizeEnum._1024x1024 });
+
+  const openai = createOpenAIClient(apiKey);
+  const request: CreateImageRequest = { prompt, n, size }
 
   context.sendActivities([
     { type: ActivityTypes.Typing },
@@ -41,17 +33,17 @@ export const generateImages = async (context: TurnContext, text: string): Promis
     },
     { type: ActivityTypes.Typing },
   ]);
-
+  // send the request to the OpenAI API
   const response = await openai.createImage(request);
   const { data } = response;
-
-  const resultCardData: ResultCardData = { ...data, text };
-
+  // render the card
+  const resultCardData: ResultCardData = { ...data, prompt };
   const cardJson = AdaptiveCards.declare(resultCard).render(resultCardData);
+  // return the card
   await context.sendActivity(MessageFactory.attachment(CardFactory.adaptiveCard(cardJson)));
 }
 
 // type for the result card
 export interface ResultCardData extends ImagesResponse {
-  text: string;
+  prompt: string;
 }

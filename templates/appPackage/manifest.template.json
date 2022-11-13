@@ -44,6 +44,10 @@
                         {
                             "title": "surprise",
                             "description": "Usage: surprise"
+                        },
+                        {
+                            "title": "settings",
+                            "description": "Usage: settings"
                         }
                     ]
                 }

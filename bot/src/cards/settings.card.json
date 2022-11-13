@@ -1,0 +1,61 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.4",
+  "body": [
+    {
+      "id": "apiKey",
+      "type": "Input.Text",
+      "value": "${apiKey}",
+      "label": "API Key",
+      "isRequired": true,
+      "errorMessage": "Please enter your API Key"
+    },
+    {
+      "id": "n",
+      "type": "Input.Number",
+      "value": "${n}",
+      "min": 1,
+      "max": 10,
+      "isRequired": true,
+      "label": "Results (1-10)",
+      "errorMessage": "Please enter a number between 1 and 10"
+    },
+    {
+      "id": "size",
+      "type": "Input.ChoiceSet",
+      "label": "Image size",
+      "value": "${size}",
+      "style": "expanded",
+      "choices": [
+        {
+          "title": "1024x1024",
+          "value": "1024x1024"
+        },
+        {
+          "title": "512x512",
+          "value": "512x512"
+        },
+        {
+          "title": "256x256",
+          "value": "256x256"
+        }
+      ]
+    },
+    {
+      "type": "ActionSet",
+      "actions": [
+        {
+          "type": "Action.Execute",
+          "title": "Save",
+          "verb": "settings-save"
+        },
+        {
+          "type": "Action.Execute",
+          "title": "Cancel",
+          "verb": "settings-cancel"
+        }
+      ]
+    }
+  ]
+}

@@ -10,3 +10,5 @@ The app has been built using Teams Toolkit for Visual Studio Code and uses the O
   - Generate images based on the text provided
 - `surprise`
   - Generate images based on text selected from a pool of ideas
+- 'settings'
+  - Set API Key, number of results and image size
