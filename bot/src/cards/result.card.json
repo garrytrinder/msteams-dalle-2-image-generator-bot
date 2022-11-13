@@ -24,7 +24,7 @@
               },
               "data": {
                 "url": "${url}",
-                "text": "${$root.prompt}"
+                "prompt": "${$root.prompt}"
               }
             }
           }
