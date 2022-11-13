@@ -2,10 +2,14 @@ import * as restify from "restify";
 import { commandBot } from "./internal/initialize";
 import path from "path";
 import { DALLE2ImageGeneratorActivityHandler } from "./internal/activityHandler";
-import { ConversationState, MemoryStorage, UserState } from "botbuilder";
+import { ConversationState, UserState } from "botbuilder";
+import { BlobsStorage } from "botbuilder-azure-blobs";
 
 // initialise the storage for the bot
-const storage = new MemoryStorage();
+const storage = new BlobsStorage(
+  process.env.BLOB_CONNECTION_STRING,
+  process.env.BLOB_CONTAINER_NAME
+);
 
 // initialise the conversation state
 export const conversationState = new ConversationState(storage);

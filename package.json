@@ -1,5 +1,5 @@
 {
-    "name": "ImageGenerator",
+    "name": "msteams-dalle-2-image-generator-bot",
     "version": "0.0.1",
     "description": "",
     "author": "",
@@ -9,6 +9,7 @@
     "devDependencies": {
         "@microsoft/teamsfx-cli": "1.*",
         "@typescript-eslint/eslint-plugin": "^5.42.1",
+        "azurite": "^3.20.1",
         "eslint": "^8.27.0",
         "eslint-config-standard-with-typescript": "^23.0.0",
         "eslint-plugin-import": "^2.26.0",

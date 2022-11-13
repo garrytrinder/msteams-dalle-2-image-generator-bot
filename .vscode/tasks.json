@@ -101,7 +101,8 @@
         {
             "label": "Start services",
             "dependsOn": [
-                "Start bot"
+                "Start bot",
+                "Start azurite"
             ]
         },
         {
@@ -125,6 +126,30 @@
                     "activeOnStart": true,
                     "beginsPattern": "[nodemon] starting",
                     "endsPattern": "restify listening to|Bot/ME service listening at|[nodemon] app crashed"
+                }
+            }
+        },
+        {
+            "label": "Start azurite",
+            "type": "shell",
+            "command": "azurite",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}/bot"
+            },
+            "problemMatcher": {
+                "pattern": [
+                    {
+                        "regexp": "^.*$",
+                        "file": 0,
+                        "location": 1,
+                        "message": 2
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Azurite Blob service is starting",
+                    "endsPattern": "Azurite Table service is successfully listening|Azurite Queue service successfully closed"
                 }
             }
         }
