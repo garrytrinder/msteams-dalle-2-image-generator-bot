@@ -5,6 +5,7 @@ import { SettingsCancelHandler } from "../actions/settings-cancel";
 import { SettingsSaveHandler } from "../actions/settings-save";
 import config from "./config";
 import { SettingsCommandHandler } from "../commands/settings";
+import { HistoryCommandHandler } from "../commands/history";
 
 export const commandBot = new ConversationBot({
   adapterConfig: {
@@ -15,14 +16,15 @@ export const commandBot = new ConversationBot({
     enabled: true,
     commands: [
       new GenerateCommandHandler(),
-      new SurpriseCommandHandler(),
-      new SettingsCommandHandler()
+      new HistoryCommandHandler(),
+      new SettingsCommandHandler(),
+      new SurpriseCommandHandler()
     ],
   }, cardAction: {
     enabled: true,
     actions: [
-      new SettingsSaveHandler(),
-      new SettingsCancelHandler()
+      new SettingsCancelHandler(),
+      new SettingsSaveHandler()
     ]
   }
 });

@@ -2,7 +2,7 @@ import { TurnContext, Activity, ActivityTypes, MessageFactory, CardFactory } fro
 import { Configuration, CreateImageRequest, CreateImageRequestSizeEnum, ImagesResponse, OpenAIApi } from "openai";
 import { AdaptiveCards } from "@microsoft/adaptivecards-tools";
 import resultCard from "../cards/result.card.json";
-import { apiKeyState, nState, sizeState } from "..";
+import { apiKeyState, historyState, nState, sizeState } from "..";
 
 // create a new OpenAI client
 export const createOpenAIClient =
@@ -20,7 +20,8 @@ export const generateImages = async (context: TurnContext, prompt: string): Prom
   if (!apiKey) { return context.sendActivity('No API key set. Please set an API key using the "settings" command.'); }
   const { n } = await nState.get(context, { n: 1 });
   const { size } = await sizeState.get(context, { size: CreateImageRequestSizeEnum._1024x1024 });
-
+  const { history } = await historyState.get(context, { history: [] });
+  await historyState.set(context, { history: [...history, { timestamp: new Date().toISOString(), prompt }] });
   const openai = createOpenAIClient(apiKey);
   const request: CreateImageRequest = { prompt, n, size }
 

@@ -42,12 +42,16 @@
                             "description": "Usage: generate <text>"
                         },
                         {
-                            "title": "surprise",
-                            "description": "Usage: surprise"
+                            "title": "history",
+                            "description": "Usage: history"
                         },
                         {
                             "title": "settings",
                             "description": "Usage: settings"
+                        },
+                        {
+                            "title": "surprise",
+                            "description": "Usage: surprise"
                         }
                     ]
                 }

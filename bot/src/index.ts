@@ -21,6 +21,7 @@ const userState = new UserState(storage);
 export const apiKeyState = conversationState.createProperty("apiKey");
 export const nState = conversationState.createProperty("results");
 export const sizeState = conversationState.createProperty("size");
+export const historyState = conversationState.createProperty("hsitory");
 
 const activityHandler = new DALLE2ImageGeneratorActivityHandler(conversationState, userState);
 
