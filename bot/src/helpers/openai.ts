@@ -17,7 +17,7 @@ export const createOpenAIClient =
 // generate images from a prompt
 export const generateImages = async (context: TurnContext, prompt: string): Promise<string | void | Partial<Activity>> => {
   const { apiKey } = await apiKeyState.get(context, { apiKey: '' });
-  if (!apiKey) { return context.sendActivity('No API key set. Please set an API key using the "settings" command.'); }
+  if (!apiKey) { await context.sendActivity("You need to provide an API Key. Use the `settings` command."); return; }
   const { n } = await nState.get(context, { n: 1 });
   const { size } = await sizeState.get(context, { size: CreateImageRequestSizeEnum._1024x1024 });
   const { history } = await historyState.get(context, { history: [] });
