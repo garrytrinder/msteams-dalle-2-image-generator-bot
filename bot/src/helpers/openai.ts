@@ -5,7 +5,6 @@ import resultCard from "../cards/result.card.json";
 import { apiKeyState, historyState, nState, sizeState } from "..";
 import { ResultCardData } from "./models";
 
-// create a new OpenAI client
 export const createOpenAIClient =
   (apiKey: string): OpenAIApi => {
     const configuration = new Configuration({
@@ -15,18 +14,25 @@ export const createOpenAIClient =
     return new OpenAIApi(configuration);
   }
 
-// generate images from a prompt
 export const generateImages = async (context: TurnContext, prompt: string): Promise<string | void | Partial<Activity>> => {
+  // get the API key from state
   const { apiKey } = await apiKeyState.get(context, { apiKey: '' });
+  // if there is no API key, return a friendly error message
   if (!apiKey) { await context.sendActivity("You need to provide an API Key. Use the `settings` command."); return; }
+  // get the number of images to generate from state
   const { n } = await nState.get(context, { n: 1 });
+  // get the size of images to generate from state
   const { size } = await sizeState.get(context, { size: CreateImageRequestSizeEnum._1024x1024 });
+  // get the history from state
   const { history } = await historyState.get(context, { history: [] });
+  // save the prompt to history
   await historyState.set(context, { history: [...history, { timestamp: new Date().toISOString(), prompt }] });
+  // create a new OpenAI client
   const openai = createOpenAIClient(apiKey);
+  // create a new request
   const request: CreateImageRequest = { prompt, n, size }
-
-  context.sendActivities([
+  // send a typing activity and confirmation to the user
+  await context.sendActivities([
     { type: ActivityTypes.Typing },
     { type: 'delay', value: 1000 },
     {
@@ -43,9 +49,4 @@ export const generateImages = async (context: TurnContext, prompt: string): Prom
   const cardJson = AdaptiveCards.declare(resultCard).render(resultCardData);
   // return the card
   await context.sendActivity(MessageFactory.attachment(CardFactory.adaptiveCard(cardJson)));
-}
-
-// type for the result card
-export interface ResultCardData extends ImagesResponse {
-  prompt: string;
 }

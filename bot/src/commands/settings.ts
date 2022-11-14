@@ -11,9 +11,11 @@ export class SettingsCommandHandler implements TeamsFxBotCommandHandler {
   triggerPatterns: TriggerPatterns = "settings";
 
   async handleCommandReceived(context: TurnContext): Promise<string | void | Partial<Activity>> {
-    // get the settings from the conversation state
+    // get the API key from state
     const { apiKey } = await apiKeyState.get(context, { apiKey: '' });
+    // get the number of images to generate from state
     const { n } = await nState.get(context, { n: 1 });
+    // get the size of images to generate from state
     const { size } = await sizeState.get(context, { size: CreateImageRequestSizeEnum._1024x1024 });
     // render the card
     const settingsCardData: SettingsCardData = { apiKey, n, size };
