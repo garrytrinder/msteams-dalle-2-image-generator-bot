@@ -17,3 +17,15 @@ The below table describes the commands available for use in the bot.
 | ❓ | Generate images from a randomly selected detailed description | `surprise` |
 | 🕒 | View submission history | `history` |
 | ⚙️ | Configure bot settings | `settings` |
+
+## Concepts introduced
+
+- Using `TeamsFxBotCommandHandler` class to respond to incoming messages from the chat
+- Using `TeamsFxActionHandler` class to respond to Adaptive Card submissions
+- Integrate `TeamsActivityHandler` class with a Teams Toolkit generated project
+- Send a welcome message on install to start a first run experience
+- Save to and retrieve data from conversation state using state accessors
+- Use Azurite local emulation of Azure Blob Storage for persisting state
+- Send typing indicator from the bot to the chat
+- Add time delay when sending messages from the bot to the chat
+- Add custom tasks to Teams Toolkit F5 debugging process
