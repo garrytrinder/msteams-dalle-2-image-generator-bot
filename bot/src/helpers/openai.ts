@@ -3,7 +3,8 @@ import { Configuration, CreateImageRequest, CreateImageRequestSizeEnum, OpenAIAp
 import { AdaptiveCards } from "@microsoft/adaptivecards-tools";
 import resultCard from "../cards/result.card.json";
 import { apiKeyState, historyState, nState, sizeState } from "..";
-import { ResultCardData } from "./models";
+import { ErrorCardData, ResultCardData } from "./models";
+import errorCard from "../cards/error.card.json";
 
 export const createOpenAIClient =
   (apiKey: string): OpenAIApi => {
@@ -41,12 +42,19 @@ export const generateImages = async (context: TurnContext, prompt: string): Prom
     },
     { type: ActivityTypes.Typing },
   ]);
-  // send the request to the OpenAI API
-  const response = await openai.createImage(request);
-  const { data } = response;
-  // render the card
-  const resultCardData: ResultCardData = { ...data, prompt };
-  const cardJson = AdaptiveCards.declare(resultCard).render(resultCardData);
-  // return the card
-  await context.sendActivity(MessageFactory.attachment(CardFactory.adaptiveCard(cardJson)));
+
+  try {
+    // send the request to the OpenAI API
+    const response = await openai.createImage(request);
+    const { data } = response;
+    // render the card
+    const resultCardData: ResultCardData = { ...data, prompt };
+    const cardJson = AdaptiveCards.declare(resultCard).render(resultCardData);
+    // return the card
+    await context.sendActivity(MessageFactory.attachment(CardFactory.adaptiveCard(cardJson)));
+  } catch (err) {
+    const errorCardData: ErrorCardData = { error: err.message };
+    const errorCardJson = AdaptiveCards.declare(errorCard).render(errorCardData);
+    await context.sendActivity(MessageFactory.attachment(CardFactory.adaptiveCard(errorCardJson)));
+  }
 }

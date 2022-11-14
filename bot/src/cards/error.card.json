@@ -1,0 +1,26 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.4",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "🛑 Something went wrong",
+      "weight": "Bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "There was an issue with your request."
+    },
+    {
+      "type": "TextBlock",
+      "text": "${error}",
+      "wrap": true,
+      "isSubtle": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Check your API Key and try again."
+    }
+  ]
+}

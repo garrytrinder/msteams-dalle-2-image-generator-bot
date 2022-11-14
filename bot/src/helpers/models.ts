@@ -15,3 +15,7 @@ export interface SettingsSaveActionData {
 export interface ResultCardData extends ImagesResponse {
   prompt: string;
 }
+
+export interface ErrorCardData {
+  error: string;
+}
