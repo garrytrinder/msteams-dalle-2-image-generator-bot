@@ -22,7 +22,7 @@
         "short": "{{config.manifest.description.short}}",
         "full": "{{config.manifest.description.full}}"
     },
-    "accentColor": "#FFFFFF",
+    "accentColor": "#0078d4",
     "bots": [
         {
             "botId": "{{state.fx-resource-bot.botId}}",
