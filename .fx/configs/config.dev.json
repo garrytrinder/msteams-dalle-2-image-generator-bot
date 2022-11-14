@@ -8,7 +8,7 @@
         },
         "description": {
             "short": "Create images from scratch based on a text prompt",
-            "full": "Create images using the DALLE 2 Image generation model from scratch based on a text prompt"
+            "full": "Create images from scratch based on a text prompt using the DALLE 2 image generation model"
         },
         "icons": {
             "color": "resources/color.png",
