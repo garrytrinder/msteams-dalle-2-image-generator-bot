@@ -16,8 +16,10 @@ export class SettingsSaveHandler implements TeamsFxAdaptiveCardActionHandler {
     await apiKeyState.set(context, { apiKey });
     await nState.set(context, { n });
     await sizeState.set(context, { size });
+    // create masked api key
+    const maskedApiKey = `${apiKey.substring(0, 3)}...${apiKey.substring(apiKey.length - 4)}`;
     // render the card
-    const settingsCardData: SettingsCardData = { apiKey, n, size };
+    const settingsCardData: SettingsCardData = { apiKey: maskedApiKey, n, size };
     const cardJson = AdaptiveCards.declare(settingsSaveCard).render(settingsCardData);
     // return the card
     return InvokeResponseFactory.adaptiveCard(cardJson);

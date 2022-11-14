@@ -4,12 +4,29 @@
   "version": "1.4",
   "body": [
     {
+      "type": "TextBlock",
+      "text": "⚙️ Settings",
+      "weight": "Bolder",
+      "wrap": true
+    },
+    {
       "id": "apiKey",
       "type": "Input.Text",
       "value": "${apiKey}",
       "label": "API Key",
       "isRequired": true,
-      "errorMessage": "Please enter your API Key"
+      "errorMessage": "Please enter your API Key",
+      "style": "Password"
+    },
+    {
+      "type": "ActionSet",
+      "actions": [
+        {
+          "type": "Action.OpenUrl",
+          "title": "Get API Key",
+          "url": "https://beta.openai.com/account/api-keys"
+        }
+      ]
     },
     {
       "id": "n",
