@@ -1,8 +1,9 @@
 import { TurnContext, Activity, ActivityTypes, MessageFactory, CardFactory } from "botbuilder";
-import { Configuration, CreateImageRequest, CreateImageRequestSizeEnum, ImagesResponse, OpenAIApi } from "openai";
+import { Configuration, CreateImageRequest, CreateImageRequestSizeEnum, OpenAIApi } from "openai";
 import { AdaptiveCards } from "@microsoft/adaptivecards-tools";
 import resultCard from "../cards/result.card.json";
 import { apiKeyState, historyState, nState, sizeState } from "..";
+import { ResultCardData } from "./models";
 
 // create a new OpenAI client
 export const createOpenAIClient =
