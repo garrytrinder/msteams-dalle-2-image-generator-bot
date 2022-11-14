@@ -6,6 +6,7 @@ import { SettingsSaveHandler } from "../actions/settings-save";
 import config from "./config";
 import { SettingsCommandHandler } from "../commands/settings";
 import { HistoryCommandHandler } from "../commands/history";
+import { WelcomeConfigHandler } from "../actions/welcome-config";
 
 export const commandBot = new ConversationBot({
   adapterConfig: {
@@ -24,7 +25,8 @@ export const commandBot = new ConversationBot({
     enabled: true,
     actions: [
       new SettingsCancelHandler(),
-      new SettingsSaveHandler()
+      new SettingsSaveHandler(),
+      new WelcomeConfigHandler()
     ]
   }
 });

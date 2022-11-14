@@ -1,0 +1,200 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.4",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "You have successfully installed the DALL-E 2 Image Generator app!",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "This app provides you with the ability to generate images from text using artificial intelligence.",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Let me show you some of the commands that are available.",
+      "wrap": true
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "🧑‍🎨",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Generate images using a detailed description ",
+              "wrap": true,
+              "separator": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "generate <text>",
+              "wrap": true,
+              "fontType": "Monospace"
+            }
+          ]
+        }
+      ],
+      "separator": true,
+      "bleed": true,
+      "spacing": "ExtraLarge"
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "❓",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Generate images from a randomly selected detailed description",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "surprise",
+              "wrap": true,
+              "fontType": "Monospace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "🕒",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "View submission history",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "history",
+              "wrap": true,
+              "fontType": "Monospace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "⚙️",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Configure bot settings",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "settings",
+              "wrap": true,
+              "fontType": "Monospace"
+            }
+          ]
+        }
+      ],
+      "spacing": "Padding"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Before you begin, you will need to configure the bot.",
+      "wrap": true,
+      "separator": true,
+      "spacing": "ExtraLarge"
+    },
+    {
+      "type": "ActionSet",
+      "actions": [
+        {
+          "type": "Action.Execute",
+          "title": "Configure",
+          "verb": "welcome-config"
+        }
+      ]
+    }
+  ]
+}
