@@ -29,3 +29,14 @@ The below table describes the commands available for use in the bot.
 - Send typing indicator from the bot to the chat
 - Add time delay when sending messages from the bot to the chat
 - Add custom tasks to Teams Toolkit F5 debugging process
+
+## Build
+
+> Requires Teams Toolkit for Visual Studio Code and Microsoft 365 tenant
+
+- Clone repository
+- Open project in VS Code
+- Add the following variables to `bot\src\.env.teamsfx.local`
+  - `BLOB_CONNECTION_STRING=UseDevelopmentStorage=true`
+  - `BLOB_CONTAINER_NAME=state`
+- F5
