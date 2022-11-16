@@ -1,0 +1,32 @@
+{
+    "solution": {
+        "provisionSucceeded": true,
+        "teamsAppTenantId": "bf805346-44e7-43f7-8e60-c5e24aefe49c",
+        "subscriptionId": "1a6b55b6-e6fd-47a0-825b-32a31c4141a9",
+        "subscriptionName": "Visual Studio Enterprise Subscription",
+        "tenantId": "bf805346-44e7-43f7-8e60-c5e24aefe49c",
+        "needCreateResourceGroup": false,
+        "resourceGroupName": "rg-dalle2imagegenerator-dev",
+        "location": "UK South",
+        "resourceNameSuffix": "e3e35a"
+    },
+    "fx-resource-appstudio": {
+        "tenantId": "bf805346-44e7-43f7-8e60-c5e24aefe49c",
+        "teamsAppId": "d9d57641-896f-44a3-9f17-9789ad799405"
+    },
+    "fx-resource-bot": {
+        "botId": "e1364df7-5284-498f-9710-30a1ecbdb69b",
+        "botPassword": "{{fx-resource-bot.botPassword}}",
+        "skuName": "B1",
+        "siteName": "app-dalle2imagegenerator-dev",
+        "domain": "app-dalle2imagegenerator-dev.azurewebsites.net",
+        "appServicePlanName": "asp-dalle2imagegenerator-dev",
+        "resourceId": "/subscriptions/1a6b55b6-e6fd-47a0-825b-32a31c4141a9/resourceGroups/rg-dalle2imagegenerator-dev/providers/Microsoft.Web/sites/app-dalle2imagegenerator-dev",
+        "siteEndpoint": "https://app-dalle2imagegenerator-dev.azurewebsites.net"
+    },
+    "fx-resource-identity": {
+        "identityName": "uai-dalle2imagegenerator-dev",
+        "identityResourceId": "/subscriptions/1a6b55b6-e6fd-47a0-825b-32a31c4141a9/resourceGroups/rg-dalle2imagegenerator-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai-dalle2imagegenerator-dev",
+        "identityClientId": "1f6c4caf-daf8-404a-a911-b4b81a4c4f39"
+    }
+}

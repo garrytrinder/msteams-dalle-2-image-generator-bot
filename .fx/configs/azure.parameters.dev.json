@@ -6,7 +6,18 @@
       "value": {
         "botAadAppClientId": "{{state.teams-bot.botId}}",
         "botAadAppClientSecret": "{{state.teams-bot.botPassword}}",
-        "resourceBaseName": "imagegener2223dc"
+        "botServiceName": "bot-dalle2imagegenerator-dev",
+        "botServiceSku": "F0",
+        "botDisplayName": "imagegenerator-dev",
+        "userAssignedIdentityName": "uai-dalle2imagegenerator-dev",
+        "webAppServerfarmsName": "asp-dalle2imagegenerator-dev",
+        "webAppSKU": "B1",
+        "webAppSitesName": "app-dalle2imagegenerator-dev",
+        "webAppLocation": "uksouth",
+        "userAssignedIdentityLocation": "uksouth",
+        "blobContainerName": "state",
+        "storageAccountLocation": "uksouth",
+        "storageAccountName": "stdalle2imagegenerator01"
       }
     }
   }

@@ -2,15 +2,14 @@
 param provisionParameters object
 param userAssignedIdentityId string
 
-var resourceBaseName = provisionParameters.resourceBaseName
-var serverfarmsName = contains(provisionParameters, 'webAppServerfarmsName') ? provisionParameters['webAppServerfarmsName'] : '${resourceBaseName}bot' // Try to read name for App Service Plan from parameters
-var webAppSKU = contains(provisionParameters, 'webAppSKU') ? provisionParameters['webAppSKU'] : 'B1' // Try to read SKU for Azure Web App from parameters
-var webAppName = contains(provisionParameters, 'webAppSitesName') ? provisionParameters['webAppSitesName'] : '${resourceBaseName}bot' // Try to read name for Azure Web App from parameters
+var serverfarmsName = provisionParameters.webAppServerfarmsName
+var webAppSKU = provisionParameters.webAppSKU
+var webAppName = provisionParameters.webAppSitesName
 
 // Compute resources for your Web App
 resource serverfarm 'Microsoft.Web/serverfarms@2021-02-01' = {
   kind: 'app'
-  location: resourceGroup().location
+  location: provisionParameters.webAppLocation
   name: serverfarmsName
   sku: {
     name: webAppSKU
@@ -21,7 +20,7 @@ resource serverfarm 'Microsoft.Web/serverfarms@2021-02-01' = {
 // Web App that hosts your app
 resource webApp 'Microsoft.Web/sites@2021-02-01' = {
   kind: 'app'
-  location: resourceGroup().location
+  location: provisionParameters.webAppLocation
   name: webAppName
   properties: {
     serverFarmId: serverfarm.id

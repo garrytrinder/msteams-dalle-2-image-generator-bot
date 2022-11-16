@@ -10,6 +10,17 @@ module botProvision './provision/botService.bicep' = {
   }
 }
 
+module storageProvision './provision/storage.bicep' = {
+  name: 'storageProvision'
+  params: {
+    provisionParameters: provisionParameters
+  }
+}
+
+output storageProvisionOutput object = {
+  blobConnectionString: storageProvision.outputs.blobConnectionString
+}
+
 // Resources web app
 module azureWebAppBotProvision './provision/azureWebAppBot.bicep' = {
   name: 'azureWebAppBotProvision'
