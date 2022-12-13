@@ -4,32 +4,25 @@
   "version": "1.4",
   "body": [
     {
-      "type": "ImageSet",
-      "spacing": "medium",
-      "imageSize": "large",
-      "images": [
-        {
-          "$data": "${data}",
-          "id": "thumb-${$index}",
-          "type": "Image",
-          "size": "stretch",
-          "url": "${url}",
-          "altText": "${$root.prompt}",
-          "selectAction": {
-            "type": "Action.Submit",
-            "title": "Open",
-            "data": {
-              "msteams": {
-                "type": "task/fetch"
-              },
-              "data": {
-                "url": "${url}",
-                "prompt": "${$root.prompt}"
-              }
-            }
+      "type": "Image",
+      "$data": "${data}",
+      "id": "thumb-${$index}",
+      "url": "${url}",
+      "size": "large",
+      "altText": "${$root.prompt}",
+      "selectAction": {
+        "type": "Action.Submit",
+        "title": "Open",
+        "data": {
+          "msteams": {
+            "type": "task/fetch"
+          },
+          "data": {
+            "url": "${url}",
+            "prompt": "${$root.prompt}"
           }
         }
-      ]
+      }
     }
   ]
 }
