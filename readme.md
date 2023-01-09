@@ -36,7 +36,9 @@ The below table describes the commands available for use in the bot.
 
 - Clone repository
 - Open project in VS Code
+- Start a debug session to provision resources on first run
 - Add the following variables to `bot\src\.env.teamsfx.local`
   - `BLOB_CONNECTION_STRING=UseDevelopmentStorage=true`
   - `BLOB_CONTAINER_NAME=state`
-- F5
+- Stop and start debug session for variables to take effect
+
