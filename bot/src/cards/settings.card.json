@@ -65,7 +65,8 @@
         {
           "type": "Action.Execute",
           "title": "Save",
-          "verb": "settings-save"
+          "verb": "settings-save",
+          "data": {}
         },
         {
           "type": "Action.Execute",
