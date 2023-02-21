@@ -3,7 +3,7 @@ import { TurnContext, InvokeResponse } from "botbuilder";
 import { AdaptiveCards } from "@microsoft/adaptivecards-tools";
 import { SettingsCardData, SettingsSaveActionData } from "../helpers/models";
 import settingsSaveCard from "../cards/settings-save.card.json";
-import { apiKeyState, nState, sizeState } from "..";
+import { apiKeyState, nState, settings, sizeState } from "..";
 
 export class SettingsSaveHandler implements TeamsFxAdaptiveCardActionHandler {
 
@@ -16,6 +16,7 @@ export class SettingsSaveHandler implements TeamsFxAdaptiveCardActionHandler {
     await apiKeyState.set(context, { apiKey });
     await nState.set(context, { n });
     await sizeState.set(context, { size });
+    await settings.set(context, { replyToId: context.activity.replyToId, action: 'save' });
     // create masked api key
     const maskedApiKey = `${apiKey.substring(0, 3)}...${apiKey.substring(apiKey.length - 4)}`;
     // render the card

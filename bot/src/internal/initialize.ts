@@ -7,6 +7,7 @@ import config from "./config";
 import { SettingsCommandHandler } from "../commands/settings";
 import { HistoryCommandHandler } from "../commands/history";
 import { WelcomeConfigHandler } from "../actions/welcome-config";
+import { SettingsRefreshHandler } from "../actions/settings-refresh";
 
 export const commandBot = new ConversationBot({
   adapterConfig: {
@@ -26,6 +27,7 @@ export const commandBot = new ConversationBot({
     actions: [
       new SettingsCancelHandler(),
       new SettingsSaveHandler(),
+      new SettingsRefreshHandler(),
       new WelcomeConfigHandler()
     ]
   }
